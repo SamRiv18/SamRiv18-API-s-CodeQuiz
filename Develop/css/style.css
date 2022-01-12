@@ -1,0 +1,60 @@
+/* sets the basics of the page centers all the text to the middle of the page.*/
+h1{
+    font-size: 5.4rem;
+    color: purple;
+    margin-bottom: 5rem;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.flex-center{
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.text-center{
+    text-align: center;
+}
+
+/* CSS for the buttons */
+
+.Btn{
+    font-size: 1.8rem;
+    padding: 1rem;
+    width: 20rem;
+    text-align: center;
+    border: 0.1rem solid purple;
+    margin-bottom: 1rem;
+    text-decoration:none;
+    color: white;
+    background-color: purple;
+}
+
+.Btn:hover{
+    cursor: default;
+    box-shadow: 0 0.4rem 1.4rem 0 purple;
+    transform: translateY(-0.1rem);
+}
+

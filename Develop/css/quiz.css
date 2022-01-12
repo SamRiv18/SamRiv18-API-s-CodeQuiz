@@ -1,0 +1,27 @@
+/* styles for the option on answers being shown */
+.answers{
+    display: flex;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    width: fit-content;
+    font-size: 1.8rem;
+    background-color: white;
+}
+
+/* style arounf the numbers */
+.options{
+    padding: 0.5rem 1.5rem;
+    background-color: purple;
+    color: white;
+}
+
+.ans-text{
+    padding: 0.9rem;
+}
+
+/* styles for when the mouse is hovering over the answers */
+.answers:hover{
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 purple;
+    transform: translateY(-0.1rem);
+}
