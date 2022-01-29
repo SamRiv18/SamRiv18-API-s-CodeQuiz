@@ -49,12 +49,13 @@ h1{
     margin-bottom: 1rem;
     text-decoration:none;
     color: white;
-    background-color: purple;
+    background-color: purple;  
 }
 
 .Btn:hover{
-    cursor: default;
+    cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 purple;
     transform: translateY(-0.1rem);
+    font-size: 2rem;
 }
 

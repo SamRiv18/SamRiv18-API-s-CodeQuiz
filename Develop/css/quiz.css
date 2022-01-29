@@ -25,3 +25,23 @@
     box-shadow: 0 0.4rem 1.4rem 0 purple;
     transform: translateY(-0.1rem);
 }
+
+/* styles for the display of the timer **********************************************/
+.timer{
+    display: flex;
+    background-color: purple;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.8rem;
+    width: fit-content;
+    color: white;
+    padding: 0.3rem;
+    margin-left: 80rem;
+    border-radius: 5px;   
+    
+}
+
+.timer .timer_set{
+    text-align: center;
+    margin-left: 1rem;
+}
+/* ******************************************************************************* */
