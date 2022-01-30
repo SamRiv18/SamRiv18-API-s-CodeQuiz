@@ -12,9 +12,18 @@
 <body>
     <div class="container">
         <div id="quiz" class="justify-center flex-column">
-            <header class="timer">
-                <div id="timer" >Time: </div>
-                <div class="timer_set" >15</div>
+            <header>
+                <div class="info">
+                 <div class="question-count">
+                     <p class="question-info">Question:</p>
+                     <p id="number" class="number-of-question"></p>
+                 </div>
+            
+                    <div class="timer" > 
+                        <p class="timer-text">Timer:</p>
+                        <p class="timer_set" >15</p>
+                    </div>
+                </div>
             </header>
             <h1 id="question">Commonly used data types DO NOT include:</h1>
             <div class="answers">
@@ -36,6 +45,6 @@
         </div>
     </div>
 
-    <script src="/Develop/js/logic.js"></script>
+    <script src="../../Develop/js/logic.js"></script>
 </body>
 </html>

@@ -2,11 +2,12 @@
 var question = document.getElementById('question');
 var answers = Array.from(document.getElementsByClassName('ans-text'));
 var timerEl=document.getElementById("timer_set");
+var remainingQuestions =document.getElementById("number");
 var startTime=document.getElementById("startBtn");
 
 var currentQuestion ={};
 var acceptingAnswers = false;
-var score= 0;
+var time= 60;
 var questionCounter= 0;
 var avaliableQuestions= [];
 
@@ -61,20 +62,25 @@ var questions= [
 ]
 
 // set of questions avaliable for the quiz
-var numberOfQuestions = 5;
+var numberOfQuestions = 6;
 
 startGame = () => {
     questionCounter  = 0;
-    score = 0;
     avaliableQuestions = [... questions];
-    console.log(avaliableQuestions);
+    
     getNewQuestion();
 }
 
 getNewQuestion = () =>{
     
+    if (avaliableQuestions.length==0 || questionCounter >= numberOfQuestions){
+        return window.location.assign("/highscore.html")
+    }
     //incriments through the set of questions by 1 each time
     questionCounter ++;
+
+    // displays counter for the question
+    remainingQuestions.innerText = `${questionCounter}/${numberOfQuestions}`
 
     // chooses a random question from the set each time the function loads 
     var randQuestion = Math.floor(Math.random()*avaliableQuestions.length);
@@ -91,15 +97,20 @@ getNewQuestion = () =>{
     
     //gets rid of the displayed question from the array so it doesn't repeat
     avaliableQuestions.splice(randQuestion,1);
-
     acceptingAnswers= true
-
+};
     //listens for when one of the answers is clicked 
     answers.forEach(question => {
         question.addEventListener('click', e => {
-            console.log(e.target);
-        })
-    })
-};
 
+            var userChoice =e.target;
+            var rightAnswer= userChoice.dataset["number"];
+
+            var check = rightAnswer == currentQuestion.answers ? 'correct' : 'incorrect';
+
+            userChoice.parentElement.classList.add(check);
+            console.log(check);
+            getNewQuestion();
+        });
+    });
 startGame();

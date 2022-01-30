@@ -1,3 +1,4 @@
+
 /* styles for the option on answers being shown */
 .answers{
     display: flex;
@@ -17,6 +18,7 @@
 
 .ans-text{
     padding: 0.9rem;
+    width: 100%;
 }
 
 /* styles for when the mouse is hovering over the answers */
@@ -26,22 +28,32 @@
     transform: translateY(-0.1rem);
 }
 
-/* styles for the display of the timer **********************************************/
-.timer{
+/* styles for the display of the timer and question counter**********************************************/
+.info{
     display: flex;
-    background-color: purple;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.8rem;
-    width: fit-content;
-    color: white;
-    padding: 0.3rem;
-    margin-left: 80rem;
-    border-radius: 5px;   
-    
+    justify-content: space-between;
 }
 
-.timer .timer_set{
+.info .timer, .question-count{
+    background-color: purple;
+    border-radius: .5rem;
+    padding: .4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.8rem;
+    color: white;
+    display: flex;
+    height: fit-content;
+    margin-top: 1.8rem;
+}
+
+#question{
+    margin-top: 1rem;
+    border-top: .1rem solid ;
+}
+
+.info .timer_set, .number-of-question{
     text-align: center;
     margin-left: 1rem;
+    flex-wrap: wrap;
 }
 /* ******************************************************************************* */
