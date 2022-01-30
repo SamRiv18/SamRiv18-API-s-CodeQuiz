@@ -1,13 +1,11 @@
 
 var question = document.getElementById('question');
 var answers = Array.from(document.getElementsByClassName('ans-text'));
-var timerEl=document.getElementById("timer_set");
 var remainingQuestions =document.getElementById("number");
 var startTime=document.getElementById("startBtn");
-
+var timeEl = document.querySelector(".timer_set")
 var currentQuestion ={};
 var acceptingAnswers = false;
-var time= 60;
 var questionCounter= 0;
 var avaliableQuestions= [];
 
@@ -62,12 +60,11 @@ var questions= [
 ]
 
 // set of questions avaliable for the quiz
-var numberOfQuestions = 6;
+var numberOfQuestions = 5;
 
 startGame = () => {
     questionCounter  = 0;
     avaliableQuestions = [... questions];
-    
     getNewQuestion();
 }
 
@@ -100,17 +97,38 @@ getNewQuestion = () =>{
     acceptingAnswers= true
 };
     //listens for when one of the answers is clicked 
+     var check
+
     answers.forEach(question => {
         question.addEventListener('click', e => {
 
             var userChoice =e.target;
             var rightAnswer= userChoice.dataset["number"];
 
-            var check = rightAnswer == currentQuestion.answers ? 'correct' : 'incorrect';
+            check = rightAnswer == currentQuestion.answers ? 'correct' : 'incorrect';
 
             userChoice.parentElement.classList.add(check);
             console.log(check);
             getNewQuestion();
         });
     });
+
+var timeleft=10;
+
+function countDown(){
+    var timeInterval= setInterval(function(){
+        
+
+        if(timeleft>=1 ){
+            timeleft--;
+            timeEl.textContent = timeleft;
+        }
+
+        else{
+            return window.location.assign("/highscore.html")
+        }
+    },1000);
+}
+
+countDown();
 startGame();
