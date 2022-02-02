@@ -9,7 +9,27 @@ var acceptingAnswers = false;
 var questionCounter= 0;
 var avaliableQuestions= [];
 
+// variable that starts the timer
+var gameclock=60;
 
+var timeleft;
+var updateTime;
+
+// countDown function taht displays the time
+function countDown(time){
+    timeleft= setInterval(timer, 1000); function timer(){
+        timeEl.textContent = time;
+        time--;
+        
+        // once timer hits zero, the game will direct them to the highscore page. 
+        if(time<=0){
+            return window.location.assign("./Develop/html/highscore.html")
+        }
+        
+        updateTime = time;
+        return updateTime;
+    }
+}
 
 // array taht holds the set of questions
 var questions= [
@@ -66,12 +86,13 @@ startGame = () => {
     questionCounter  = 0;
     avaliableQuestions = [... questions];
     getNewQuestion();
+    countDown(gameclock);
 }
 
 getNewQuestion = () =>{
     
     if (avaliableQuestions.length==0 || questionCounter >= numberOfQuestions){
-        return window.location.assign("/highscore.html")
+        return window.location.assign("./Develop/html/highscore.html")
     }
     //incriments through the set of questions by 1 each time
     questionCounter ++;
@@ -108,27 +129,17 @@ getNewQuestion = () =>{
             check = rightAnswer == currentQuestion.answers ? 'correct' : 'incorrect';
 
             userChoice.parentElement.classList.add(check);
+
+            // interacts with the countDown fucntion, if the user answers the question incorrectly, the game will subtract 10 seconds off their time
+            if ( check == "incorrect"){
+                var punish= updateTime - 9;
+                
+                clearInterval(timeleft);
+                countDown(punish);
+            }
+
             console.log(check);
             getNewQuestion();
         });
     });
-
-var timeleft=10;
-
-function countDown(){
-    var timeInterval= setInterval(function(){
-        
-
-        if(timeleft>=1 ){
-            timeleft--;
-            timeEl.textContent = timeleft;
-        }
-
-        else{
-            return window.location.assign("/highscore.html")
-        }
-    },1000);
-}
-
-countDown();
 startGame();
