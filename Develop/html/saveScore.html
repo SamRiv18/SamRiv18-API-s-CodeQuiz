@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Develop/css/reset.css">
+    <link rel="stylesheet" href="../../Develop/css/style.css">
+
+    <title>High Scores</title>
+</head>
+<body>
+    <div class="container">
+        <div id="end" class="flex-center flex-column">
+            <h1 id="result"></h1>
+            <form>
+                <input type="text" name="username" id="userInput" placeholder="Username"/>
+                <button type="submit" class="Btn" id="saveScore" onclick="saveHighScore(event)" disabled>Save</button>
+            </form>
+            <a href="quiz.html" class="Btn">Play Again</a>
+            <a href="/index.html" class="Btn">Go Home</a>
+            <a href="/Develop/html/highScoreBoard.html" class="Btn">High Scores</a>
+            
+
+        </div>
+    </div>
+
+    <script src="../../Develop/js/saveScore.js"></script>
+
+</body>
+</html>
