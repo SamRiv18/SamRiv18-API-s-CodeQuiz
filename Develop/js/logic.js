@@ -10,7 +10,7 @@ var questionCounter= 0;
 var avaliableQuestions= [];
 
 // variable that starts the timer
-var gameclock=60;
+var gameClock=50;
 
 var timeleft;
 var updateTime;
@@ -23,11 +23,13 @@ function countDown(time){
         
         // once timer hits zero, the game will direct them to the highscore page. 
         if(time<=0){
-            return window.location.assign("./Develop/html/highscore.html")
+            return window.location.assign("saveScore.html")
         }
-        
-        updateTime = time;
-        return updateTime;
+        else
+        { 
+            updateTime = time;
+            return updateTime;
+        }
     }
 }
 
@@ -86,14 +88,21 @@ startGame = () => {
     questionCounter  = 0;
     avaliableQuestions = [... questions];
     getNewQuestion();
-    countDown(gameclock);
+    countDown(gameClock);
 }
 
 getNewQuestion = () =>{
-    
+       
     if (avaliableQuestions.length==0 || questionCounter >= numberOfQuestions){
-        return window.location.assign("./Develop/html/highscore.html")
+        if(updateTime >=0){
+        localStorage.setItem('finalScore',updateTime);
     }
+    else{
+        localStorage.setItem('finalScore',0);
+    }
+        return window.location.assign("saveScore.html")
+    }
+    
     //incriments through the set of questions by 1 each time
     questionCounter ++;
 
@@ -118,7 +127,8 @@ getNewQuestion = () =>{
     acceptingAnswers= true
 };
     //listens for when one of the answers is clicked 
-     var check
+     var check;
+     var punish = 0;
 
     answers.forEach(question => {
         question.addEventListener('click', e => {
@@ -132,12 +142,11 @@ getNewQuestion = () =>{
 
             // interacts with the countDown fucntion, if the user answers the question incorrectly, the game will subtract 10 seconds off their time
             if ( check == "incorrect"){
-                var punish= updateTime - 9;
-                
+                punish = updateTime - 9;
                 clearInterval(timeleft);
                 countDown(punish);
+                   
             }
-
             console.log(check);
             getNewQuestion();
         });
