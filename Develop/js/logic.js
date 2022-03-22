@@ -142,7 +142,7 @@ getNewQuestion = () =>{
 
             // interacts with the countDown fucntion, if the user answers the question incorrectly, the game will subtract 10 seconds off their time
             if ( check == "incorrect"){
-                punish = updateTime - 9;
+                punish = updateTime -= 9;
                 clearInterval(timeleft);
                 countDown(punish);
                    

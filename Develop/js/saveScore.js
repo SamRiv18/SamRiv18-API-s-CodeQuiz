@@ -17,12 +17,13 @@ username.addEventListener("keyup", () => {
 saveHighScore = e =>{
     e.preventDefault();
 
-    var score = {
+    var userInfo = {
         initials:username.value,
         grade:finalScore
     };
 
-    board.push(score);
+    board.push(userInfo);
+    board.sort((a,b)=>b.board - a.board);
     localStorage.setItem('board',JSON.stringify(board));
     console.log(board)
 }
