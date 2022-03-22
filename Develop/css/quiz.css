@@ -57,3 +57,16 @@
     flex-wrap: wrap;
 }
 /* ******************************************************************************* */
+/* styles for highscore board */
+#scoreList{
+    list-style-type: decimal;
+    
+    margin-bottom: 4rem;
+    width: 8vw;
+    margin-left: 15rem;
+}
+
+.highscore{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
