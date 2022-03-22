@@ -4,11 +4,10 @@ var userScore = document.getElementById("result")
 
 var finalScore = localStorage.getItem("finalScore");
 
+// converts saved scores in local storage to an array so it can be manipulated
 var board = JSON.parse(localStorage.getItem("board"))||[];
-console.log(board);
 
-
-userScore.innerText = finalScore;
+userScore.innerText = finalScore;// displays the score achieved in the last attempt
 
 username.addEventListener("keyup", () => {
     saveScore.disabled = !username.value;
@@ -17,13 +16,13 @@ username.addEventListener("keyup", () => {
 saveHighScore = e =>{
     e.preventDefault();
 
+//object that holds the users information
     var userInfo = {
         initials:username.value,
         grade:finalScore
     };
-
+    // sorts highscores from highest to lowest
     board.push(userInfo);
-    board.sort((a,b)=>b.board - a.board);
-    localStorage.setItem('board',JSON.stringify(board));
-    console.log(board)
+    board.sort( (a,b) => b.grade - a.grade);
+    localStorage.setItem('board',JSON.stringify(board)); //converts array back into a string value so it can be stored in local storage
 }

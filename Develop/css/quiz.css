@@ -9,7 +9,12 @@
     background-color: white;
 }
 
-/* style arounf the numbers */
+#quiz{
+    border-bottom: .1rem solid;
+}
+
+
+/* style around the numbers */
 .options{
     padding: 0.5rem 1.5rem;
     background-color: purple;
@@ -34,7 +39,7 @@
     justify-content: space-between;
 }
 
-.info .timer, .question-count{
+.info .timer, .question-count, .feedBack{
     background-color: purple;
     border-radius: .5rem;
     padding: .4rem;
@@ -44,6 +49,11 @@
     display: flex;
     height: fit-content;
     margin-top: 1.8rem;
+}
+
+.feedBack{
+    background-color: inherit ;
+    display: none;
 }
 
 #question{

@@ -3,7 +3,9 @@ var question = document.getElementById('question');
 var answers = Array.from(document.getElementsByClassName('ans-text'));
 var remainingQuestions =document.getElementById("number");
 var startTime=document.getElementById("startBtn");
-var timeEl = document.querySelector(".timer_set")
+var timeEl = document.querySelector(".timer_set");
+var feedBack = document.querySelector(".feedBack");
+
 var currentQuestion ={};
 var acceptingAnswers = false;
 var questionCounter= 0;
@@ -133,21 +135,29 @@ getNewQuestion = () =>{
     answers.forEach(question => {
         question.addEventListener('click', e => {
 
+            feedBack.style.display = "block";
+
             var userChoice =e.target;
             var rightAnswer= userChoice.dataset["number"];
 
-            check = rightAnswer == currentQuestion.answers ? 'correct' : 'incorrect';
+            check = rightAnswer == currentQuestion.answers ? 'Correct' : 'Incorrect';
 
             userChoice.parentElement.classList.add(check);
 
             // interacts with the countDown fucntion, if the user answers the question incorrectly, the game will subtract 10 seconds off their time
-            if ( check == "incorrect"){
+            if ( check == "Incorrect"){
                 punish = updateTime -= 9;
                 clearInterval(timeleft);
-                countDown(punish);
-                   
+                countDown(punish);   
+                feedBack.style.backgroundColor = "red"; // manipulates CSS for the class feedBack. changes backround to red so the user can have visual feedback when wrong
             }
-            console.log(check);
+            feedBack.textContent = check;// writes the value of check as feedback for the user
+
+            setInterval(()=>{
+                feedBack.style.display = "none";
+                feedBack.style.backgroundColor = "green"; // manipulates CSS for the class feedBack. changes backround to green so the user can have visual feedback when correct
+            },2000)
+            console.log(check , currentQuestion.answers);
             getNewQuestion();
         });
     });
