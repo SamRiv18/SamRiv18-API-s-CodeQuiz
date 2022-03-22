@@ -69,14 +69,17 @@
 /* ******************************************************************************* */
 /* styles for highscore board */
 #scoreList{
+    display: flex;
+    flex-direction: column;
     list-style-type: decimal;
-    
     margin-bottom: 4rem;
-    width: 8vw;
-    margin-left: 15rem;
+    margin-left: auto;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .highscore{
+    text-align: justify;
     font-size: 2rem;
     margin-bottom: 1rem;
 }
