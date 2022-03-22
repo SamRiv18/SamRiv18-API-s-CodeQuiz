@@ -154,10 +154,9 @@ getNewQuestion = () =>{
             feedBack.textContent = check;// writes the value of check as feedback for the user
 
             setInterval(()=>{
-                feedBack.style.display = "none";
                 feedBack.style.backgroundColor = "green"; // manipulates CSS for the class feedBack. changes backround to green so the user can have visual feedback when correct
+                feedBack.style.display = "none";
             },2000)
-            console.log(check , currentQuestion.answers);
             getNewQuestion();
         });
     });
